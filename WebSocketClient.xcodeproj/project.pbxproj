@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		123CB8ECEEC011B05AB31423 /* libPods-WebSocketClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A57CD9387842338E78D4445 /* libPods-WebSocketClient.a */; };
+		979F2B3020BC58D000E725E3 /* Wallet.m in Sources */ = {isa = PBXBuildFile; fileRef = 979F2B2C20BC58D000E725E3 /* Wallet.m */; };
+		979F2B3120BC58D000E725E3 /* NSString+sha256.m in Sources */ = {isa = PBXBuildFile; fileRef = 979F2B2D20BC58D000E725E3 /* NSString+sha256.m */; };
 		C447523120ABBA9B009BB1DE /* SocketRocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = C447523020ABBA9B009BB1DE /* SocketRocketUtility.m */; };
 		C4F63AAE20AA6756009CF95A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F63AAD20AA6756009CF95A /* AppDelegate.m */; };
 		C4F63AB120AA6756009CF95A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F63AB020AA6756009CF95A /* ViewController.m */; };
@@ -38,6 +40,10 @@
 
 /* Begin PBXFileReference section */
 		7A57CD9387842338E78D4445 /* libPods-WebSocketClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WebSocketClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		979F2B2C20BC58D000E725E3 /* Wallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wallet.m; sourceTree = "<group>"; };
+		979F2B2D20BC58D000E725E3 /* NSString+sha256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+sha256.m"; sourceTree = "<group>"; };
+		979F2B2E20BC58D000E725E3 /* Wallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wallet.h; sourceTree = "<group>"; };
+		979F2B2F20BC58D000E725E3 /* NSString+sha256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+sha256.h"; sourceTree = "<group>"; };
 		AEBF2D816B254EF37937CA50 /* Pods-WebSocketClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebSocketClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebSocketClient/Pods-WebSocketClient.debug.xcconfig"; sourceTree = "<group>"; };
 		C447522F20ABBA9B009BB1DE /* SocketRocketUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketRocketUtility.h; path = WebSocketClient/WebSocket/SocketRocketUtility.h; sourceTree = SOURCE_ROOT; };
 		C447523020ABBA9B009BB1DE /* SocketRocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketRocketUtility.m; path = WebSocketClient/WebSocket/SocketRocketUtility.m; sourceTree = SOURCE_ROOT; };
@@ -103,6 +109,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		979F2B2B20BC58D000E725E3 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				979F2B2C20BC58D000E725E3 /* Wallet.m */,
+				979F2B2D20BC58D000E725E3 /* NSString+sha256.m */,
+				979F2B2E20BC58D000E725E3 /* Wallet.h */,
+				979F2B2F20BC58D000E725E3 /* NSString+sha256.h */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
 		C447522E20ABBA83009BB1DE /* WebSocket */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +133,7 @@
 		C4F63AA020AA6756009CF95A = {
 			isa = PBXGroup;
 			children = (
+				979F2B2B20BC58D000E725E3 /* Wallet */,
 				C4F63AAB20AA6756009CF95A /* WebSocketClient */,
 				C4F63AC420AA6756009CF95A /* WebSocketClientTests */,
 				C4F63ACF20AA6756009CF95A /* WebSocketClientUITests */,
@@ -325,6 +343,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				979F2B3120BC58D000E725E3 /* NSString+sha256.m in Sources */,
+				979F2B3020BC58D000E725E3 /* Wallet.m in Sources */,
 				C4F63AB120AA6756009CF95A /* ViewController.m in Sources */,
 				C447523120ABBA9B009BB1DE /* SocketRocketUtility.m in Sources */,
 				C4F63ABC20AA6756009CF95A /* main.m in Sources */,
