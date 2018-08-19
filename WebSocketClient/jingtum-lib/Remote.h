@@ -55,7 +55,6 @@ extern NSString * const kWebSocketdidReceiveMessage;
 -(Transaction*)buildOfferCreateTx:(NSDictionary*)paramDic;
 -(Transaction*)buildOfferCancelTx:(NSDictionary*)paramDic;
 
-
 -(NSString*)toAmount:(NSDictionary*)amount;
 
 @end

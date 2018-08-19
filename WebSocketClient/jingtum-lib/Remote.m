@@ -7,6 +7,7 @@
 //
 
 #import "Remote.h"
+#import <CoreBitcoin/CoreBitcoin.h>
 #import "Transaction.h"
 
 #define dispatch_main_async_safe(block)\
@@ -191,6 +192,20 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
 
 -(BOOL)isValidAddress:(NSString*)address
 {
+    NSData *data = [address dataFromBase58];
+    char *bytes = [data bytes];
+    if (data == nil || data.length < 5 || bytes[0] != (char)0) {
+        return false;
+    }
+    NSData *checksum = [data subdataWithRange:NSMakeRange(data.length-4, 4)];
+    
+    NSData *seedBytes = [data subdataWithRange:NSMakeRange(0, data.length-4)];
+    NSData *computed = [[[seedBytes SHA256] SHA256] subdataWithRange:NSMakeRange(0, 4)];
+    
+    if (![checksum isEqualToData:computed]) {
+        return false;
+    }
+    
     return true;
 }
 
