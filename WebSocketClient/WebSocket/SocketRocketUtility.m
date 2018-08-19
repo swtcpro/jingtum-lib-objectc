@@ -160,13 +160,35 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
     dispatch_main_async_safe(^{
         [self destoryHeartBeat];
         //心跳设置为3分钟，NAT超时一般为5分钟
-        heartBeat = [NSTimer timerWithTimeInterval:3 target:self selector:@selector(sentheart) userInfo:nil repeats:NO];
+//        heartBeat = [NSTimer timerWithTimeInterval:3 target:self selector:@selector(connectCallback) userInfo:nil repeats:NO];
+        
+        heartBeat = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(getServerInfoCallback) userInfo:nil repeats:NO];
         //和服务端约定好发送什么作为心跳标识，尽可能的减小心跳包大小
         [[NSRunLoop currentRunLoop] addTimer:heartBeat forMode:NSRunLoopCommonModes];
     })
 }
 
--(void)sentheart{
+-(void)getServerInfoCallback {
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    [array addObject:@"ledger"];
+    [array addObject:@"server"];
+    
+    NSNumber *num = [NSNumber numberWithInt:1];
+    [dic setObject:num forKey:@"id"];
+//    [dic setObject:@"server_info" forKey:@"command"]; // server_info
+    [dic setObject:@"ledger_closed" forKey:@"command"]; // ledger_closed
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
+    NSLog(@"ns data is %@",jsonData);
+    NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"json string:%@", json);
+    
+    [self sendData:json];
+}
+
+-(void)connectCallback{
     //发送心跳 和后台可以约定发送什么内容  一般可以调用ping  我这里根据后台的要求 发送了data给他
     // {"id":0,"command":"subscribe","streams":["ledger","server"]}
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];

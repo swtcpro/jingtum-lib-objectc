@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Remote.h"
 
 @interface ViewController : UIViewController
+{
+    Remote *remote;
+}
 
+- (void)SRWebSocketDidOpen;
 
 @end
 
