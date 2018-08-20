@@ -22,6 +22,13 @@ The following libraries are referenced.
 
 ## Install
 
+jingtum-lib-objectc is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "jingtum-lib-objectc"
+```
+
 ## Summary
 The jingtum-lib-objective-c library is based on the ws protocol to connect with jingtum system. 
 The Remote class provides public APIs to create two kinds of objects: Request object by GET
