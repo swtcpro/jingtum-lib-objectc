@@ -170,9 +170,9 @@
         char b2[1];
         char b3[1];
         char b4[1];
-        b1[0] = (i >> 24 ) & 0xff;
-        b2[0] = (i >> 16 ) & 0xff;
-        b3[0] = (i >> 8 ) & 0xff;
+        b1[0] = ((unsigned int)i >> 24 ) & 0xff;
+        b2[0] = ((unsigned int)i >> 16 ) & 0xff;
+        b3[0] = ((unsigned int)i >> 8 ) & 0xff;
         b4[0] = i & 0xff;
         
         NSData *datab1 = [[NSData alloc] initWithBytes:b1 length:1];

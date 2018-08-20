@@ -62,9 +62,9 @@
 //    [remote requestAccountTums:options];
     
     //////////////////////////
-    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-    [options setObject:@"trust" forKey:@"type"];
-    [remote requestAccountRelations:options];
+//    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+//    [options setObject:@"trust" forKey:@"type"];
+//    [remote requestAccountRelations:options];
     
     //////////////////////////
 //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
