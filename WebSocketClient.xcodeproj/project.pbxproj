@@ -13,8 +13,6 @@
 		C43B8CBE211B34250051B064 /* Wallet.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B8CB8211B34240051B064 /* Wallet.m */; };
 		C43B8CBF211B34250051B064 /* NSData+Bitcoin.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B8CB9211B34240051B064 /* NSData+Bitcoin.m */; };
 		C43B8CC0211B34250051B064 /* NSMutableData+Bitcoin.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B8CBB211B34250051B064 /* NSMutableData+Bitcoin.m */; };
-		C43B8CC32121A2D40051B064 /* Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C43B8CC22121A2D40051B064 /* Serializer.m */; };
-		C441E2C22126815D0021C1C2 /* TumAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = C441E2C12126815D0021C1C2 /* TumAmount.m */; };
 		C445C9EF20DC9B1E00FF63C9 /* Remote.m in Sources */ = {isa = PBXBuildFile; fileRef = C445C9ED20DC9B1E00FF63C9 /* Remote.m */; };
 		C445C9F320DC9B4D00FF63C9 /* SocketRocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = C445C9F120DC9B4D00FF63C9 /* SocketRocketUtility.m */; };
 		C445C9F920E759CD00FF63C9 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = C445C9F720E759CC00FF63C9 /* Transaction.m */; };
@@ -22,6 +20,8 @@
 		C445CA0B20E7751C00FF63C9 /* NSData+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = C445CA0A20E7751C00FF63C9 /* NSData+Hash.m */; };
 		C445CA1620E7AA2900FF63C9 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C445CA1420E7AA2900FF63C9 /* libcrypto.a */; };
 		C445CA1720E7AA2900FF63C9 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C445CA1520E7AA2900FF63C9 /* libssl.a */; };
+		C44BE4D8212AE3CD0012F47D /* Serializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C44BE4D5212AE3CC0012F47D /* Serializer.m */; };
+		C44BE4D9212AE3CD0012F47D /* TumAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = C44BE4D7212AE3CC0012F47D /* TumAmount.m */; };
 		C4F63AAE20AA6756009CF95A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F63AAD20AA6756009CF95A /* AppDelegate.m */; };
 		C4F63AB120AA6756009CF95A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F63AB020AA6756009CF95A /* ViewController.m */; };
 		C4F63AB420AA6756009CF95A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F63AB220AA6756009CF95A /* Main.storyboard */; };
@@ -62,10 +62,6 @@
 		C43B8CBA211B34240051B064 /* NSMutableData+Bitcoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableData+Bitcoin.h"; path = "WebSocketClient/jingtum-lib/NSMutableData+Bitcoin.h"; sourceTree = SOURCE_ROOT; };
 		C43B8CBB211B34250051B064 /* NSMutableData+Bitcoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableData+Bitcoin.m"; path = "WebSocketClient/jingtum-lib/NSMutableData+Bitcoin.m"; sourceTree = SOURCE_ROOT; };
 		C43B8CBC211B34250051B064 /* Keypairs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Keypairs.h; path = "WebSocketClient/jingtum-lib/Keypairs.h"; sourceTree = SOURCE_ROOT; };
-		C43B8CC12121A2D40051B064 /* Serializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Serializer.h; sourceTree = "<group>"; };
-		C43B8CC22121A2D40051B064 /* Serializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Serializer.m; sourceTree = "<group>"; };
-		C441E2C02126815D0021C1C2 /* TumAmount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TumAmount.h; sourceTree = "<group>"; };
-		C441E2C12126815D0021C1C2 /* TumAmount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TumAmount.m; sourceTree = "<group>"; };
 		C445C9ED20DC9B1E00FF63C9 /* Remote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Remote.m; path = "WebSocketClient/jingtum-lib/Remote.m"; sourceTree = SOURCE_ROOT; };
 		C445C9EE20DC9B1E00FF63C9 /* Remote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Remote.h; path = "WebSocketClient/jingtum-lib/Remote.h"; sourceTree = SOURCE_ROOT; };
 		C445C9F120DC9B4D00FF63C9 /* SocketRocketUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketRocketUtility.m; sourceTree = "<group>"; };
@@ -80,6 +76,10 @@
 		C445CA0D20E7840900FF63C9 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = WebSocketClient/libs/libcrypto.a; sourceTree = "<group>"; };
 		C445CA1420E7AA2900FF63C9 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = lib/libcrypto.a; sourceTree = "<group>"; };
 		C445CA1520E7AA2900FF63C9 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = lib/libssl.a; sourceTree = "<group>"; };
+		C44BE4D4212AE3CB0012F47D /* Serializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Serializer.h; path = "WebSocketClient/jingtum-lib/Serializer.h"; sourceTree = SOURCE_ROOT; };
+		C44BE4D5212AE3CC0012F47D /* Serializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Serializer.m; path = "WebSocketClient/jingtum-lib/Serializer.m"; sourceTree = SOURCE_ROOT; };
+		C44BE4D6212AE3CC0012F47D /* TumAmount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TumAmount.h; path = "WebSocketClient/jingtum-lib/TumAmount.h"; sourceTree = SOURCE_ROOT; };
+		C44BE4D7212AE3CC0012F47D /* TumAmount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TumAmount.m; path = "WebSocketClient/jingtum-lib/TumAmount.m"; sourceTree = SOURCE_ROOT; };
 		C4F63AA920AA6756009CF95A /* WebSocketClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebSocketClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F63AAC20AA6756009CF95A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C4F63AAD20AA6756009CF95A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -167,12 +167,12 @@
 				C445CA0720E7742A00FF63C9 /* NSString+Base58.m */,
 				C445CA0920E7751C00FF63C9 /* NSData+Hash.h */,
 				C445CA0A20E7751C00FF63C9 /* NSData+Hash.m */,
+				C44BE4D4212AE3CB0012F47D /* Serializer.h */,
+				C44BE4D5212AE3CC0012F47D /* Serializer.m */,
+				C44BE4D6212AE3CC0012F47D /* TumAmount.h */,
+				C44BE4D7212AE3CC0012F47D /* TumAmount.m */,
 				C43B8CB2211B31FB0051B064 /* Seed.h */,
 				C43B8CB3211B31FB0051B064 /* Seed.m */,
-				C43B8CC12121A2D40051B064 /* Serializer.h */,
-				C43B8CC22121A2D40051B064 /* Serializer.m */,
-				C441E2C02126815D0021C1C2 /* TumAmount.h */,
-				C441E2C12126815D0021C1C2 /* TumAmount.m */,
 			);
 			name = "jingtum-lib";
 			path = "New Group";
@@ -405,8 +405,8 @@
 				C445C9F920E759CD00FF63C9 /* Transaction.m in Sources */,
 				C445CA0B20E7751C00FF63C9 /* NSData+Hash.m in Sources */,
 				C4F63AB120AA6756009CF95A /* ViewController.m in Sources */,
-				C441E2C22126815D0021C1C2 /* TumAmount.m in Sources */,
-				C43B8CC32121A2D40051B064 /* Serializer.m in Sources */,
+				C44BE4D9212AE3CD0012F47D /* TumAmount.m in Sources */,
+				C44BE4D8212AE3CD0012F47D /* Serializer.m in Sources */,
 				C43B8CBF211B34250051B064 /* NSData+Bitcoin.m in Sources */,
 				C4F63ABC20AA6756009CF95A /* main.m in Sources */,
 				C4F63AAE20AA6756009CF95A /* AppDelegate.m in Sources */,
