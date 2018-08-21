@@ -1,0 +1,3 @@
+target 'OCLibSample' do
+	pod 'jingtum-lib-objectc'
+end

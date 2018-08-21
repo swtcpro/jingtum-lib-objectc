@@ -21,8 +21,14 @@ The following libraries are referenced.
 * CoreBitcoin (https://github.com/oleganza/CoreBitcoin)
 
 ## Install
+After download this sourcecode, we should run 
+```ruby
+pod install
+```
+to download the nessessary libraries
 
-jingtum-lib-objectc is available through [CocoaPods](http://cocoapods.org). To install
+
+Also jingtum-lib-objectc is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
