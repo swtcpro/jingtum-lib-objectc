@@ -51,27 +51,3 @@ Submit() method.
     remote.Disconnect();
 ```
 
-## Remote class
-Main handler for backend system. It creates a handle with jingtum, makes request to jingtum, 
-subscribes event to jingtum, and gets info from jingtum.
-
-## Request&lt;T&gt; class
-Request server and account info without secret. Request is used to get server, account, orderbook 
-and path info. Request is not secret required, and will be public to every one. All requests are 
-asynchronized and should provide a callback. Each callback provides the json message, exception, 
-and result object.
-
-## Transaction&lt;T&gt; class
-Post request to server with account secret. Transaction is used to make transaction and collect 
-transaction parameter. Each transaction is secret required, and transaction can be signed local 
-or remote. Now remote sign and local sign are supported. All transactions are asynchronized and 
-should provide a callback. Each callback provides the json message, exception, and result object.
-
-## Events  
-You can listen events of the server.  
-* Listening all transactions occur in the system. (Remote.Transactions event)
-* Listening all last closed ledger event. (Remote.LedgerClosed event)
-* Listening all server status change event. (Remote.ServerStatusChanged event)
-* Listening all events for specific account. (Remote.CreateAccountStub method)
-* Listening all events for specific orderbook pair. (Remote.CreateOrderBookStub method)
-

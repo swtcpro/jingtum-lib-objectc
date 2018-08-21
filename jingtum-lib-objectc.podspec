@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = { "jerry" => "xutom2006@126.com" }
   s.platform     = :ios
   s.source       = { :git => "https://github.com/swtcpro/jingtum-lib-objectc.git", :tag => s.version }
-  s.source_files = "WebSocketClient/**/*.{h,m,c}"
+  s.source_files = "WebSocketClient/jingtum-lib/*.{h,m}", "WebSocketClient/WebSocket/*.{h,m}"
   s.ios.deployment_target = '10.0'
   s.frameworks   = 'UIKit'
   s.requires_arc = true

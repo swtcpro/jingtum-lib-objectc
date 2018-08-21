@@ -33,8 +33,8 @@
 - (void)SRWebSocketDidOpen {
     NSLog(@"connect socket successfully");
     //在成功后需要做的操作。。。类似于 nodejs 里面的回调函数
-    [remote requestServerInfo];
-//    [remote requestLedgerClosed];
+//    [remote requestServerInfo];
+    [remote requestLedgerClosed];
     
 //    [remote disconnect];
     
