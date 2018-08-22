@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Remote.h>
+#import <Wallet.h>
 
 @interface ViewController : UIViewController
 {

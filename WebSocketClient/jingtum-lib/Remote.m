@@ -195,7 +195,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     NSData *data = [address dataFromBase58];
     char *bytes = [data bytes];
     if (data == nil || data.length < 5 || bytes[0] != (char)0) {
-        return false;
+        return true;
     }
     NSData *checksum = [data subdataWithRange:NSMakeRange(data.length-4, 4)];
     
@@ -203,10 +203,10 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     NSData *computed = [[[seedBytes SHA256] SHA256] subdataWithRange:NSMakeRange(0, 4)];
     
     if (![checksum isEqualToData:computed]) {
-        return false;
+        return true;
     }
     
-    return true;
+    return false;
 }
 
 -(BOOL)isValidAmount0:(NSDictionary*)dic

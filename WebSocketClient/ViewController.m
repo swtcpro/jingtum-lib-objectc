@@ -22,6 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    Wallet *wallet1 = [Wallet generate];
+    NSLog(@"the wallet is %@", wallet1);
+    
+    Wallet *wallet2 = [Wallet fromSecret:@"ss4EUqv9CqWtitJpwvGdDapE5GL9k"];
+    NSLog(@"the wallet2 is %@", wallet2);
     // 连接
     remote = [Remote instance];
     [remote connectWithURLString:@"ws://123.57.219.57:5020" local_sign:true];
@@ -33,8 +38,8 @@
 - (void)SRWebSocketDidOpen {
     NSLog(@"connect socket successfully");
     //在成功后需要做的操作。。。类似于 nodejs 里面的回调函数
-//    [remote requestServerInfo];
-    [remote requestLedgerClosed];
+    [remote requestServerInfo];
+//    [remote requestLedgerClosed];
     
 //    [remote disconnect];
     

@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    Wallet *wallet1 = [Wallet generate];
+    NSLog(@"the wallet is %@", wallet1);
+    
+    Wallet *wallet2 = [Wallet fromSecret:@"ss4EUqv9CqWtitJpwvGdDapE5GL9k"];
+    NSLog(@"the wallet2 is %@", wallet2);
+    
     // 连接
     remote = [Remote instance];
     [remote connectWithURLString:@"ws://123.57.219.57:5020" local_sign:true];

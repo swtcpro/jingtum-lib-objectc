@@ -49,4 +49,23 @@
     return dic;
 }
 
++(NSDictionary*)fromSecret:(NSString*)secret
+{
+    Seed *seed = [[Seed alloc] init];
+    
+    Keypairs *keypairs = [seed deriveKeyPair:secret];
+    
+    NSData *bytes = [keypairs.pub BTCHash160];
+    BTCAddress *btcAddress = [BTCPublicKeyAddress addressWithData:bytes];
+    NSString *address = btcAddress.base58String;
+    NSLog(@"the address is %@", address);
+    
+    //    Wallet *wallet = [[Wallet alloc] initWithKeypairs:keypairs private:secret];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:secret forKey:@"secret"];
+    [dic setObject:address forKey:@"address"];
+    
+    return dic;
+}
+
 @end

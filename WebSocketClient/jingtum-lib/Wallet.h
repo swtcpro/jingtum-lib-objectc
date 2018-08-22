@@ -17,5 +17,6 @@
 -(id)initWithKeypairs:(Keypairs*)keypairs private:(NSString*)secret;
 
 +(NSDictionary*)generate;
++(NSDictionary*)fromSecret:(NSString*)secret;
 
 @end
