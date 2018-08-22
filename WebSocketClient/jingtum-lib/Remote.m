@@ -436,7 +436,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
         [dic setObject:num forKey:@"id"];
         [dic setObject:@"account_tx" forKey:@"command"]; // account_tx
         
-        if ([self isValidAddress:account]) {
+        if (![self isValidAddress:account]) {
             [dic setObject:account forKey:@"account"];
             NSNumber *ledger_min = [paramDic objectForKey:@"ledger_min"];
             if (ledger_min != nil) {

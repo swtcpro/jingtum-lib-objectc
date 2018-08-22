@@ -17,11 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    Wallet *wallet1 = [Wallet generate];
-    NSLog(@"the wallet is %@", wallet1);
+//    Wallet *wallet1 = [Wallet generate];
+//    NSLog(@"the wallet is %@", wallet1);
     
-    Wallet *wallet2 = [Wallet fromSecret:@"ss4EUqv9CqWtitJpwvGdDapE5GL9k"];
-    NSLog(@"the wallet2 is %@", wallet2);
+//    Wallet *wallet2 = [Wallet fromSecret:@"ss4EUqv9CqWtitJpwvGdDapE5GL9k"];
+//    NSLog(@"the wallet2 is %@", wallet2);
     
     // 连接
     remote = [Remote instance];
@@ -35,45 +35,45 @@
     NSLog(@"connect socket successfully");
     //在成功后需要做的操作。。。类似于 nodejs 里面的回调函数
     //    [remote requestServerInfo];
-    [remote requestLedgerClosed];
+//    [remote requestLedgerClosed];
     
     //    [remote disconnect];
     
     NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
-    
-    //    NSNumber *ledger_index = [NSNumber numberWithInt:483718];
-    //    NSNumber *transactions = [NSNumber numberWithBool:YES];
-    //
-    //    [options setObject:ledger_index forKey:@"ledger_index"];
-    //    [options setObject:transactions forKey:@"transactions"];
-    //
-    //    [remote requestLedger:options];
+//
+//        NSNumber *ledger_index = [NSNumber numberWithInt:483718];
+//        NSNumber *transactions = [NSNumber numberWithBool:YES];
+//
+//        [options setObject:ledger_index forKey:@"ledger_index"];
+//        [options setObject:transactions forKey:@"transactions"];
+//
+//        [remote requestLedger:options];
     
     //////////////////////////
     // 这边传入的是 交易hash 哦！！！！
-    //    [options setObject:@"A4C52EF5A3075BF6169BA0AC716BF26A989B97BEDE53DC3BA1C252CF1338E0C7" forKey:@"hash"];
-    //    [remote requestTx:options];
+//        [options setObject:@"A4C52EF5A3075BF6169BA0AC716BF26A989B97BEDE53DC3BA1C252CF1338E0C7" forKey:@"hash"];
+//        [remote requestTx:options];
     
     //////////////////////////
-    //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-    //    [remote requestAccountInfo:options];
+//        [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+//        [remote requestAccountInfo:options];
     
     //////////////////////////
-    //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-    //    [remote requestAccountTums:options];
+//        [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+//        [remote requestAccountTums:options];
     
     //////////////////////////
-    //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-    //    [options setObject:@"trust" forKey:@"type"];
-    //    [remote requestAccountRelations:options];
+//        [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+//        [options setObject:@"trust" forKey:@"type"];
+//        [remote requestAccountRelations:options];
     
     //////////////////////////
-    //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-    //    [remote requestAccountOffers:options];
+//        [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+//        [remote requestAccountOffers:options];
     
     //////////////////////////
-    //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-    //    [remote requestAccountTx:options];
+        [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+        [remote requestAccountTx:options];
     
     //////////////////////////
     //    NSMutableDictionary *gets = [[NSMutableDictionary alloc] init];
