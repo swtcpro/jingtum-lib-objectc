@@ -1,16 +1,31 @@
 PODS:
+  - CoreBitcoin (0.6.8.1):
+    - ISO8601DateFormatter
+    - OpenSSL-Universal (= 1.0.1.16)
+  - ISO8601DateFormatter (0.8)
+  - OpenSSL-Universal (1.0.1.16)
   - SocketRocket (0.5.1)
 
 DEPENDENCIES:
+  - CoreBitcoin (from `https://raw.github.com/oleganza/CoreBitcoin/master/CoreBitcoin.podspec`)
   - SocketRocket
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ISO8601DateFormatter
+    - OpenSSL-Universal
     - SocketRocket
 
+EXTERNAL SOURCES:
+  CoreBitcoin:
+    :podspec: https://raw.github.com/oleganza/CoreBitcoin/master/CoreBitcoin.podspec
+
 SPEC CHECKSUMS:
+  CoreBitcoin: 4ac6f6a61e543f08399c2fe57496d4fdcbaf74f9
+  ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
+  OpenSSL-Universal: 85ef63bf81d0741b03c8719cd29685c37c59518d
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
 
-PODFILE CHECKSUM: e0f60b3dbe8caa195307e06f75d5986decddbac2
+PODFILE CHECKSUM: 7070a0a659f31335d5476a6780b44cb7c56eb2f3
 
 COCOAPODS: 1.5.2
