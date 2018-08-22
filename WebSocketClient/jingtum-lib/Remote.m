@@ -750,7 +750,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     
     NSMutableDictionary *tx_json = [[NSMutableDictionary alloc] init];
     NSNumber *flags = [NSNumber numberWithInt:0];
-    NSNumber *fee = [NSNumber numberWithFloat:10000];
+    NSNumber *fee = [NSNumber numberWithFloat:0.01];
     [tx_json setObject:flags forKey:@"Flags"];
     [tx_json setObject:fee forKey:@"Fee"];
     tx.tx_json = tx_json;
