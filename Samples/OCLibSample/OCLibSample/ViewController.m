@@ -72,104 +72,104 @@
 //        [remote requestAccountOffers:options];
     
     //////////////////////////
-        [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-        [remote requestAccountTx:options];
+//        [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+//        [remote requestAccountTx:options];
     
     //////////////////////////
-    //    NSMutableDictionary *gets = [[NSMutableDictionary alloc] init];
-    //    NSMutableDictionary *pays = [[NSMutableDictionary alloc] init];
-    //    [gets setObject:@"SWT" forKey:@"currency"];
-    //    [gets setObject:@"" forKey:@"issuer"];
-    //    [pays setObject:@"CNY" forKey:@"currency"];
-    //    [pays setObject:@"jBciDE8Q3uJjf111VeiUNM775AMKHEbBLS" forKey:@"issuer"];
-    //    [options setObject:gets forKey:@"gets"];
-    //    [options setObject:pays forKey:@"pays"];
-    //    NSNumber *limit = [NSNumber numberWithInteger:2];
-    //    [options setObject:limit forKey:@"limit"];
-    //    [remote requestOrderBook:options];
+//        NSMutableDictionary *gets = [[NSMutableDictionary alloc] init];
+//        NSMutableDictionary *pays = [[NSMutableDictionary alloc] init];
+//        [gets setObject:@"SWT" forKey:@"currency"];
+//        [gets setObject:@"" forKey:@"issuer"];
+//        [pays setObject:@"CNY" forKey:@"currency"];
+//        [pays setObject:@"jBciDE8Q3uJjf111VeiUNM775AMKHEbBLS" forKey:@"issuer"];
+//        [options setObject:gets forKey:@"gets"];
+//        [options setObject:pays forKey:@"pays"];
+//        NSNumber *limit = [NSNumber numberWithInteger:2];
+//        [options setObject:limit forKey:@"limit"];
+//        [remote requestOrderBook:options];
     
     /////////////////////
-    //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-    //    [options setObject:@"jpKcDjvqT1BJZ6G674tvLhYdNPtwPDU6vD" forKey:@"to"];
-    ////    [options setObject:@"jpKcDjvqT1BJZ6G674tvLhYdNPtwPDU6vD" forKey:@"account"];
-    ////    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"to"];
-    //
-    //    NSMutableDictionary *amount = [[NSMutableDictionary alloc] init];
-    //    NSNumber *value = [NSNumber numberWithFloat:2];
-    //    [amount setObject:value forKey:@"value"];
-    //    [amount setObject:@"SWT" forKey:@"currency"];
-    //    [amount setObject:@" " forKey:@"issuer"];
-    //
-    //    [options setObject:amount forKey:@"amount"];
-    //
-    ////    [dic setObject:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd" forKey:@"secret"];
-    ////    [dic setObject:@"给jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c支付0.5swt." forKey:@"memo"];
-    //
-    //    Transaction *tx = [[Remote instance] buildPaymentTx:options];
-    //
-    //    [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
-    ////    [tx setSecret:@"ssPstTqs7hTWXzDFj88Um9fZDeNUK"];
-    ////    [tx addMemo:@"给jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c支付0.5swt."];
-    //    [tx submit];
-    
-    ///////////////////// ？？？？？？？？？ 有点问题？？？？？？？？
-    //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-    //    [options setObject:@"jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c" forKey:@"target"];
-    //
-    //    NSMutableDictionary *limit = [[NSMutableDictionary alloc] init];
-    //    [limit setObject:@"CCA" forKey:@"currency"];
-    //    [limit setObject:@"0.112" forKey:@"value"];
-    //    [limit setObject:@"js7M6x28mYDiZVJJtfJ84ydrv2PthY9W9u" forKey:@"issuer"];
-    //
-    //    [options setObject:limit forKey:@"limit"];
-    //    [options setObject:@"authorize" forKey:@"type"];
-    //
-    //    Transaction *tx = [[Remote instance] buildRelationTx:options];
-    //
-    //    [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
-    //    [tx submit];
+//        [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+//        [options setObject:@"jpKcDjvqT1BJZ6G674tvLhYdNPtwPDU6vD" forKey:@"to"];
+//    //    [options setObject:@"jpKcDjvqT1BJZ6G674tvLhYdNPtwPDU6vD" forKey:@"account"];
+//    //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"to"];
+//
+//        NSMutableDictionary *amount = [[NSMutableDictionary alloc] init];
+//        NSNumber *value = [NSNumber numberWithFloat:2];
+//        [amount setObject:value forKey:@"value"];
+//        [amount setObject:@"SWT" forKey:@"currency"];
+//        [amount setObject:@" " forKey:@"issuer"];
+//
+//        [options setObject:amount forKey:@"amount"];
+//
+//    //    [dic setObject:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd" forKey:@"secret"];
+//    //    [dic setObject:@"给jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c支付0.5swt." forKey:@"memo"];
+//
+//        Transaction *tx = [[Remote instance] buildPaymentTx:options];
+//
+//        [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
+//    //    [tx setSecret:@"ssPstTqs7hTWXzDFj88Um9fZDeNUK"];
+//        [tx addMemo:@"给jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c支付0.5swt."];
+//        [tx submit];
     
     /////////////////////
-    //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-    //    [options setObject:@"property" forKey:@"type"];
-    //    Transaction *tx = [[Remote instance] buildAccountSetTx:options];
-    //    if (tx != nil) {
-    //        // signerSet 会返回 nil
-    //        [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
-    //        [tx submit];
-    //    }
+//        [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+//        [options setObject:@"jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c" forKey:@"target"];
+//
+//        NSMutableDictionary *limit = [[NSMutableDictionary alloc] init];
+//        [limit setObject:@"CCA" forKey:@"currency"];
+//        [limit setObject:@"0.112" forKey:@"value"];
+//        [limit setObject:@"js7M6x28mYDiZVJJtfJ84ydrv2PthY9W9u" forKey:@"issuer"];
+//
+//        [options setObject:limit forKey:@"limit"];
+//        [options setObject:@"authorize" forKey:@"type"];
+//
+//        Transaction *tx = [[Remote instance] buildRelationTx:options];
+//
+//        [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
+//        [tx submit];
+    
+    /////////////////////
+//        [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+//        [options setObject:@"property" forKey:@"type"];
+//        Transaction *tx = [[Remote instance] buildAccountSetTx:options];
+//        if (tx != nil) {
+//            // signerSet 会返回 nil
+//            [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
+//            [tx submit];
+//        }
     
     ///////////////////////
-    //    [options setObject:@"Sell" forKey:@"type"];
-    //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-    //
-    //    NSMutableDictionary *taker_gets = [[NSMutableDictionary alloc] init];
-    //    [taker_gets setObject:@"CNY" forKey:@"currency"];
-    //    [taker_gets setObject:@"0.01" forKey:@"value"];
-    //    [taker_gets setObject:@"jBciDE8Q3uJjf111VeiUNM775AMKHEbBLS" forKey:@"issuer"];
-    //
-    //    NSMutableDictionary *taker_pays = [[NSMutableDictionary alloc] init];
-    //    [taker_pays setObject:@"SWT" forKey:@"currency"];
-    //    [taker_pays setObject:@"1" forKey:@"value"];
-    //    [taker_pays setObject:@"" forKey:@"issuer"];
-    //
-    //    [options setObject:taker_gets forKey:@"taker_gets"];
-    //    [options setObject:taker_pays forKey:@"taker_pays"];
-    //
-    //    Transaction *tx = [[Remote instance] buildOfferCreateTx:options];
-    //
-    //    [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
-    //    [tx submit];
+//        [options setObject:@"Sell" forKey:@"type"];
+//        [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+//
+//        NSMutableDictionary *taker_gets = [[NSMutableDictionary alloc] init];
+//        [taker_gets setObject:@"CNY" forKey:@"currency"];
+//        [taker_gets setObject:@"0.01" forKey:@"value"];
+//        [taker_gets setObject:@"jBciDE8Q3uJjf111VeiUNM775AMKHEbBLS" forKey:@"issuer"];
+//
+//        NSMutableDictionary *taker_pays = [[NSMutableDictionary alloc] init];
+//        [taker_pays setObject:@"SWT" forKey:@"currency"];
+//        [taker_pays setObject:@"1" forKey:@"value"];
+//        [taker_pays setObject:@"" forKey:@"issuer"];
+//
+//        [options setObject:taker_gets forKey:@"taker_gets"];
+//        [options setObject:taker_pays forKey:@"taker_pays"];
+//
+//        Transaction *tx = [[Remote instance] buildOfferCreateTx:options];
+//
+//        [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
+//        [tx submit];
     
     /////////////////////
-    //    NSNumber *sequence = [NSNumber numberWithInt:1936];
-    //    [options setObject:sequence forKey:@"sequence"];
-    //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-    //
-    //    Transaction *tx = [[Remote instance] buildOfferCancelTx:options];
-    //
-    //    [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
-    //    [tx submit];
+//        NSNumber *sequence = [NSNumber numberWithInt:1936];
+//        [options setObject:sequence forKey:@"sequence"];
+//        [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+//    
+//        Transaction *tx = [[Remote instance] buildOfferCancelTx:options];
+//    
+//        [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
+//        [tx submit];
 }
 
 - (void)SRWebSocketDidReceiveMsg:(NSNotification *)note {

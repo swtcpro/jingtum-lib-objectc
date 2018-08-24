@@ -22,11 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    Wallet *wallet1 = [Wallet generate];
-    NSLog(@"the wallet is %@", wallet1);
+//    Wallet *wallet1 = [Wallet generate];
+//    NSLog(@"the wallet is %@", wallet1);
+//
+//    Wallet *wallet2 = [Wallet fromSecret:@"ss4EUqv9CqWtitJpwvGdDapE5GL9k"];
     
-    Wallet *wallet2 = [Wallet fromSecret:@"ss4EUqv9CqWtitJpwvGdDapE5GL9k"];
-    NSLog(@"the wallet2 is %@", wallet2);
     // 连接
     remote = [Remote instance];
     [remote connectWithURLString:@"ws://123.57.219.57:5020" local_sign:true];
@@ -38,7 +38,7 @@
 - (void)SRWebSocketDidOpen {
     NSLog(@"connect socket successfully");
     //在成功后需要做的操作。。。类似于 nodejs 里面的回调函数
-    [remote requestServerInfo];
+//    [remote requestServerInfo];
 //    [remote requestLedgerClosed];
     
 //    [remote disconnect];
@@ -116,22 +116,22 @@
 ////    [tx addMemo:@"给jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c支付0.5swt."];
 //    [tx submit];
     
-    ///////////////////// ？？？？？？？？？ 有点问题？？？？？？？？
-//    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-//    [options setObject:@"jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c" forKey:@"target"];
-//
-//    NSMutableDictionary *limit = [[NSMutableDictionary alloc] init];
-//    [limit setObject:@"CCA" forKey:@"currency"];
-//    [limit setObject:@"0.112" forKey:@"value"];
-//    [limit setObject:@"js7M6x28mYDiZVJJtfJ84ydrv2PthY9W9u" forKey:@"issuer"];
-//
-//    [options setObject:limit forKey:@"limit"];
-//    [options setObject:@"authorize" forKey:@"type"];
-//
-//    Transaction *tx = [[Remote instance] buildRelationTx:options];
-//
-//    [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
-//    [tx submit];
+    /////////////////////
+    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+    [options setObject:@"jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c" forKey:@"target"];
+
+    NSMutableDictionary *limit = [[NSMutableDictionary alloc] init];
+    [limit setObject:@"CCA" forKey:@"currency"];
+    [limit setObject:@"0.112" forKey:@"value"];
+    [limit setObject:@"js7M6x28mYDiZVJJtfJ84ydrv2PthY9W9u" forKey:@"issuer"];
+
+    [options setObject:limit forKey:@"limit"];
+    [options setObject:@"authorize" forKey:@"type"];
+
+    Transaction *tx = [[Remote instance] buildRelationTx:options];
+
+    [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
+    [tx submit];
 
     /////////////////////
 //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];

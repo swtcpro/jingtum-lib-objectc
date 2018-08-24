@@ -185,9 +185,16 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     [self sendData:json];
 }
 
+// var HASH__RE = /^[A-F0-9]{64}$/;
 -(BOOL)isValidHash:(NSString*)ledger_hash
 {
-    return true;
+    if (ledger_hash == nil || ledger_hash.length <= 0) {
+        return false;
+    }
+    
+    NSString *HASH__RE = @"^[A-F0-9]{64}$";
+    NSPredicate *matchPre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", HASH__RE];
+    return [matchPre evaluateWithObject:ledger_hash];
 }
 
 -(BOOL)isValidAddress:(NSString*)address
@@ -195,7 +202,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     NSData *data = [address dataFromBase58];
     char *bytes = [data bytes];
     if (data == nil || data.length < 5 || bytes[0] != (char)0) {
-        return true;
+        return false;
     }
     NSData *checksum = [data subdataWithRange:NSMakeRange(data.length-4, 4)];
     
@@ -203,14 +210,44 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     NSData *computed = [[[seedBytes SHA256] SHA256] subdataWithRange:NSMakeRange(0, 4)];
     
     if (![checksum isEqualToData:computed]) {
-        return true;
+        return false;
     }
     
-    return false;
+    return true;
+}
+// var CURRENCY_RE = /^([a-zA-Z0-9]{3,6}|[A-F0-9]{40})$/;
+-(BOOL)isValidCurrency:(NSString*)currency
+{
+    if (currency == nil || currency.length <= 0) {
+        return false;
+    }
+    
+    NSString *CURRENCY_RE = @"^([a-zA-Z0-9]{3,6}|[A-F0-9]{40})$";
+    NSPredicate *matchPre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", CURRENCY_RE];
+    return [matchPre evaluateWithObject:currency];
 }
 
 -(BOOL)isValidAmount0:(NSDictionary*)dic
 {
+    if (dic == nil) {
+        return  false;
+    }
+    id currency = [dic objectForKey:@"currency"];
+    id issuer = [dic objectForKey:@"issuer"];
+    if (currency == nil || ![self isValidCurrency:(NSString*)currency]) {
+        return false;
+    } else {
+        if ([currency isKindOfClass:[NSString class]]) {
+            NSString *curr = (NSString*)currency;
+            if ([curr isEqualToString:@"SWT"] && issuer != nil) {
+                return false;
+            }
+            if (![curr isEqualToString:@"SWT"] && ![self isValidAddress:(NSString*)issuer]) {
+                return false;
+            }
+        }
+    }
+    
     return true;
 }
 
@@ -596,7 +633,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     [tx_json setObject:[self toAmount:amount] forKey:@"Amount"];
     [tx_json setObject:to forKey:@"Destination"];
     NSNumber *flags = [NSNumber numberWithInt:0];
-    NSNumber *fee = [NSNumber numberWithFloat:0.01];
+    NSNumber *fee = [NSNumber numberWithFloat:10000];
     [tx_json setObject:flags forKey:@"Flags"];
     [tx_json setObject:fee forKey:@"Fee"];
     
@@ -605,13 +642,28 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     return tx;
 }
 
--(void)sendPaymentTx:(NSString*)blob
+-(void)sendSignTx:(NSString*)blob
 {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     
     NSNumber *num = [NSNumber numberWithInt:req_id++];
     [dic setObject:num forKey:@"id"];
     [dic setObject:blob forKey:@"tx_blob"];
+    [dic setObject:@"submit" forKey:@"command"]; // submit
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
+    NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"json string: %@", json);
+    
+    [self sendData:json];
+}
+
+-(void)sendUnsignTx:(NSDictionary*)paramDic
+{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:paramDic];
+    
+    NSNumber *num = [NSNumber numberWithInt:req_id++];
+    [dic setObject:num forKey:@"id"];
     [dic setObject:@"submit" forKey:@"command"]; // submit
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
@@ -750,7 +802,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     
     NSMutableDictionary *tx_json = [[NSMutableDictionary alloc] init];
     NSNumber *flags = [NSNumber numberWithInt:0];
-    NSNumber *fee = [NSNumber numberWithFloat:0.01];
+    NSNumber *fee = [NSNumber numberWithFloat:10000];
     [tx_json setObject:flags forKey:@"Flags"];
     [tx_json setObject:fee forKey:@"Fee"];
     tx.tx_json = tx_json;
@@ -838,7 +890,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     
     NSMutableDictionary *tx_json = [[NSMutableDictionary alloc] init];
     NSNumber *flags = [NSNumber numberWithInt:0];
-    NSNumber *fee = [NSNumber numberWithFloat:0.01];
+    NSNumber *fee = [NSNumber numberWithFloat:10000];
     [tx_json setObject:flags forKey:@"Flags"];
     [tx_json setObject:fee forKey:@"Fee"];
     
@@ -865,7 +917,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     tx.tx_json = tx_json;
     
     NSNumber *flags = [NSNumber numberWithInt:0];
-    NSNumber *fee = [NSNumber numberWithFloat:0.01];
+    NSNumber *fee = [NSNumber numberWithFloat:10000];
     [tx_json setObject:flags forKey:@"Flags"];
     [tx_json setObject:fee forKey:@"Fee"];
     
@@ -918,7 +970,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     tx.tx_json = tx_json;
     
     NSNumber *flags = [NSNumber numberWithInt:0];
-    NSNumber *fee = [NSNumber numberWithFloat:0.01];
+    NSNumber *fee = [NSNumber numberWithFloat:10000];
     [tx_json setObject:flags forKey:@"Flags"];
     [tx_json setObject:fee forKey:@"Fee"];
     

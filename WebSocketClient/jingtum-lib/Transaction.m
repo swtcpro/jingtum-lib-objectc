@@ -75,7 +75,11 @@
 -(void)submit
 {
     NSLog(@"we are in submit");
-    if (remote.isLocal) {
+    NSString *TransactionType = [tx_json objectForKey:@"TransactionType"];
+    if (TransactionType != nil && [TransactionType isEqualToString:@"Signer"]) {
+        NSString *blob = [tx_json objectForKey:@"blob"];
+        [remote sendSignTx:blob];
+    } else if (remote.isLocal) {
         //
         NSNumber *Sequence = [tx_json objectForKey:@"Sequence"];
         if (Sequence != nil) {
@@ -89,6 +93,11 @@
             
             [remote requestAccountInfo:dic];
         }
+    } else {
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:_secret forKey:@"secret"];
+        [dic setObject:tx_json forKey:@"tx_json"];
+        [remote sendUnsignTx:dic];
     }
 }
 
@@ -121,6 +130,12 @@
 // {tx_json={Account=j47gDd3ethDU4UJMD2rosg9WrSXeh9bLd1, Destination=jK4kdiriyxErTfW8wMMjzP25oT2AKLWGfY, TransactionType=Payment, Amount=1}, tx_blob=12000022800000002400000091614000000000000001684000000000000014732103725CDCE8DF9A3ECA9C311FDB9FF65F68DC86E41E4876ADAD577F75FFFC7E6366744730450221009753F558B6C18DD86F46006EF23EBB7FA25644D158475976CA54D9FF293D82E0022012F2D4B9AA3828CB4FB01119E0ADCC832F085DBDA02ACE78C45D338F9913F37E8114EB969C12D9CFEA15D46C2B0BABD4659E086BB7EC8314C98F6CA34063D287DA5214717AC1DE6209830DB8F9EA7D2265363934616665346262393833303265333033303330333033303331353335373534E1F1, memo=支付0.000001SWT, command=submit}
 -(void)signing
 {
+    NSNumber *fee = [tx_json objectForKey:@"Fee"];
+    if (fee != nil) {
+        double value = [fee doubleValue]/1000000;
+        NSNumber *newfee = [NSNumber numberWithDouble:value];
+        [tx_json setObject:newfee forKey:@"Fee"];
+    }
     // payment
     id amount = [tx_json objectForKey:@"Amount"];
     if (amount != nil && ![amount isKindOfClass:[NSDictionary class]]) {
@@ -162,7 +177,7 @@
     NSLog(@"the blob is %@", blob);
 //  [tx_json setObject:blob forKey:@"blob"];
     
-    [remote sendPaymentTx:blob];
+    [remote sendSignTx:blob];
 }
 
 -(void)setFlags:(id)flags
