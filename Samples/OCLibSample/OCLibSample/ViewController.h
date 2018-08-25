@@ -13,6 +13,7 @@
 @interface ViewController : UIViewController
 {
     Remote *remote;
+    UITextField *secretField;
 }
 
 - (void)SRWebSocketDidOpen;
