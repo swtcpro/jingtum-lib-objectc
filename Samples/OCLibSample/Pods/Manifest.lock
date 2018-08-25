@@ -1,0 +1,34 @@
+PODS:
+  - CoreBitcoin (0.6.8.1):
+    - ISO8601DateFormatter
+    - OpenSSL-Universal (= 1.0.1.16)
+  - ISO8601DateFormatter (0.8)
+  - jingtum-lib-objectc (1.0.3):
+    - CoreBitcoin
+    - ISO8601DateFormatter
+    - OpenSSL-Universal (= 1.0.1.16)
+    - SocketRocket
+  - OpenSSL-Universal (1.0.1.16)
+  - SocketRocket (0.5.1)
+
+DEPENDENCIES:
+  - jingtum-lib-objectc
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CoreBitcoin
+    - ISO8601DateFormatter
+    - jingtum-lib-objectc
+    - OpenSSL-Universal
+    - SocketRocket
+
+SPEC CHECKSUMS:
+  CoreBitcoin: 4ac6f6a61e543f08399c2fe57496d4fdcbaf74f9
+  ISO8601DateFormatter: 4551b6ce4f83185425f583b0b3feb3c7b59b942c
+  jingtum-lib-objectc: 533af70b5c3d05b149044803ca877dc44fd9bdce
+  OpenSSL-Universal: 85ef63bf81d0741b03c8719cd29685c37c59518d
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+
+PODFILE CHECKSUM: 35aa79e80256f1b3ff1a22063693970157fd1bc5
+
+COCOAPODS: 1.5.2
