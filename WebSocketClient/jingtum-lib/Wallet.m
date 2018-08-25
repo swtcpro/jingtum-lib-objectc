@@ -27,7 +27,7 @@
 +(NSDictionary*)generate
 {
     NSDictionary *secretDic = [Seed random];
-    NSLog(@"the secretDic is %@", secretDic);
+//    NSLog(@"the secretDic is %@", secretDic);
     
     NSData *seedBytes = [secretDic objectForKey:@"seed"];
     NSString *secret = [secretDic objectForKey:@"secret"];

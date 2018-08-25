@@ -27,7 +27,7 @@
         bytes[x] = rawbytes[x-1];
     }
     
-    NSData *data = [NSData dataWithBytes:bytes length:strlen(bytes)];
+    NSData *data = [NSData dataWithBytes:bytes length:17];
     NSData *data1 = [data SHA256]; // 0x0000600000440e40 <435cd747 69f0b100 6c326a4c be9858b4 5b758250 77d7935a b10632a1 0df5d984>
     NSData *data2 = [data1 SHA256]; // <81a8856c e9d550ec cde94b2b ad489577 585509e4 11cfb96b c54fa02f 571604bf>
     
@@ -38,7 +38,7 @@
     char ret[22];
     sprintf(ret, "%s%s", bytes, checksum);
     
-    NSData *retdata = [NSData dataWithBytes:ret length:strlen(ret)];
+    NSData *retdata = [NSData dataWithBytes:ret length:22];
     NSString *secret = [retdata base58String];
     
     [retDic setObject:seed forKey:@"seed"];
