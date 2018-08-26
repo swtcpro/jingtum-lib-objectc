@@ -205,8 +205,12 @@
 
 -(void)generateWallet
 {
-    Wallet *wallet = [Wallet generate];
+    NSDictionary *wallet = [Wallet generate];
     NSLog(@"the wallet is %@", wallet);
+    
+    NSString *msg = [NSString stringWithFormat:@"address:%@ \r\nsecret:%@", [wallet objectForKey:@"address"], [wallet objectForKey:@"secret"]];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"新建钱包为" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 -(void)generateWallet2
@@ -217,8 +221,11 @@
         [alertView show];
         return;
     }
-    Wallet *wallet = [Wallet fromSecret:text];
+    NSDictionary *wallet = [Wallet fromSecret:text];
     NSLog(@"the wallet is %@", wallet);
+    NSString *msg = [NSString stringWithFormat:@"address:%@ \r\nsecret:%@", [wallet objectForKey:@"address"], [wallet objectForKey:@"secret"]];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"钱包为" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 -(void)requestServerInfo
