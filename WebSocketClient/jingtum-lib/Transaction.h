@@ -19,7 +19,7 @@
 @property (nonatomic, retain) Remote *remote;
 @property (nonatomic, copy) NSString* src;
 @property (nonatomic, copy) NSString* secret;
-@property (nonatomic, copy) NSString* memo;
+@property (nonatomic, copy) NSMutableArray* memo;
 @property (nonatomic, strong) NSMutableDictionary *tx_json;
 
 -(void)setSecret:(NSString*)secret;

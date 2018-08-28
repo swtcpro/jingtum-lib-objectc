@@ -58,4 +58,6 @@ extern NSString * const kWebSocketdidReceiveMessage;
 
 -(NSString*)toAmount:(NSDictionary*)amount;
 
+-(BOOL)isValidAddress:(NSString*)address;
+
 @end

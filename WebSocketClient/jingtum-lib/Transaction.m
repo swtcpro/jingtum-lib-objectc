@@ -18,6 +18,8 @@
 
 -(id)init
 {
+    _memo = [[NSMutableArray alloc] init];
+    
     if (self = [super init]) {
         gFlags = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                  [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -69,7 +71,14 @@
 -(void)addMemo:(NSString *)memo
 {
     NSLog(@"we are in addMemo %@", memo);
-    _memo = [memo copy];
+    if (memo.length > 2048) {
+        NSLog(@"memo is too long");
+        return;
+    }
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
+                         memo, @"MemoData",
+                         nil];
+    [_memo addObject:dic];
 }
 
 -(void)submit

@@ -326,6 +326,10 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
 {
     // 把参数填进来
     NSString *account = [paramDic objectForKey:@"account"];
+    if (![self isValidAddress:account]) {
+        NSLog(@"invalid address");
+        return;
+    }
     if (account != nil) {
         [dic setObject:account forKey:@"account"];
     }
@@ -368,7 +372,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
 -(void)requestAccountInfo:(NSDictionary*)paramDic
 {
     NSString *account = [paramDic objectForKey:@"account"];
-    if (account != nil) {
+    if (account != nil && [self isValidAddress:account]) {
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         NSMutableArray *array = [[NSMutableArray alloc] init];
         
@@ -381,14 +385,14 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
         
         [self requestAccount:dic param:paramDic];
     } else {
-        NSLog(@"without the account");
+        NSLog(@"without the account or the account is invalid");
     }
 }
 
 -(void)requestAccountTums:(NSDictionary*)paramDic
 {
     NSString *account = [paramDic objectForKey:@"account"];
-    if (account != nil) {
+    if (account != nil && [self isValidAddress:account]) {
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         NSMutableArray *array = [[NSMutableArray alloc] init];
         
@@ -401,7 +405,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
         
         [self requestAccount:dic param:paramDic];
     } else {
-        NSLog(@"without the account");
+        NSLog(@"without the account or the account is invalid");
     }
 }
 
@@ -409,7 +413,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
 {
     NSString *account = [paramDic objectForKey:@"account"];
     NSString *type = [paramDic objectForKey:@"type"];
-    if (type != nil && account != nil) {
+    if (type != nil && account != nil && [self isValidAddress:account]) {
         BOOL isValid = true;
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         NSMutableArray *array = [[NSMutableArray alloc] init];
@@ -435,14 +439,14 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
         }
     } else {
         // 出错啦
-        NSLog(@"without the type");
+        NSLog(@"without the type or the account is invalid");
     }
 }
 
 -(void)requestAccountOffers:(NSDictionary*)paramDic
 {
     NSString *account = [paramDic objectForKey:@"account"];
-    if (account != nil) {
+    if (account != nil && [self isValidAddress:account]) {
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         NSMutableArray *array = [[NSMutableArray alloc] init];
         
@@ -455,14 +459,14 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
         
         [self requestAccount:dic param:paramDic];
     } else {
-        NSLog(@"without the account");
+        NSLog(@"without the account or the account is invalid");
     }
 }
 
 -(void)requestAccountTx:(NSDictionary*)paramDic
 {
     NSString *account = [paramDic objectForKey:@"account"];
-    if (account != nil) {
+    if (account != nil && [self isValidAddress:account]) {
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         NSMutableArray *array = [[NSMutableArray alloc] init];
         
@@ -473,7 +477,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
         [dic setObject:num forKey:@"id"];
         [dic setObject:@"account_tx" forKey:@"command"]; // account_tx
         
-        if (![self isValidAddress:account]) {
+        if ([self isValidAddress:account]) {
             [dic setObject:account forKey:@"account"];
             NSNumber *ledger_min = [paramDic objectForKey:@"ledger_min"];
             if (ledger_min != nil) {
@@ -518,7 +522,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
             NSLog(@"account parameter is invalid");
         }
     } else {
-        NSLog(@"without the account");
+        NSLog(@"without the account or the account is invalid");
     }
 }
 

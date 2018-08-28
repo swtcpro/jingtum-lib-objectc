@@ -574,6 +574,8 @@
         
             [so appendData:datastr];
         }
+    } else if ([typebits_str isEqualToString:@"Array"]) {
+        
     }
 }
 

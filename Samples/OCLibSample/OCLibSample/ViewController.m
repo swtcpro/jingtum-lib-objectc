@@ -332,9 +332,6 @@
     
     [options setObject:amount forKey:@"amount"];
     
-    //    [dic setObject:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd" forKey:@"secret"];
-    //    [dic setObject:@"给jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c支付0.5swt." forKey:@"memo"];
-    
     Transaction *tx = [[Remote instance] buildPaymentTx:options];
     
     if (tx != nil) {

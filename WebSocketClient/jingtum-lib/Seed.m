@@ -62,7 +62,23 @@
 -(Keypairs*)deriveKeyPair:(NSString *)secret
 {
     NSData *data = [secret dataFromBase58];
-    NSData *seedBytes = [data subdataWithRange:NSMakeRange(1, data.length-5)];
+    
+    char *bytes = [data bytes];
+    if (data == nil || data.length < 5 || bytes[0] != 33) {
+        NSLog(@"invalid input size");
+        return nil;
+    }
+    NSData *checksum = [data subdataWithRange:NSMakeRange(data.length-4, 4)];
+    
+    NSData *seedBytes = [data subdataWithRange:NSMakeRange(0, data.length-4)];
+    NSData *computed = [[[seedBytes SHA256] SHA256] subdataWithRange:NSMakeRange(0, 4)];
+    
+    if (![checksum isEqualToData:computed]) {
+        NSLog(@"invalid checksum");
+        return nil;
+    }
+    
+    seedBytes = [data subdataWithRange:NSMakeRange(1, data.length-5)];
     [self setSeedBytes:seedBytes];
     _version = 0;
     

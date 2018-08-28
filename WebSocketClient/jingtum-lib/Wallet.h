@@ -18,5 +18,6 @@
 
 +(NSDictionary*)generate;
 +(NSDictionary*)fromSecret:(NSString*)secret;
++(BOOL)isValidSecret:(NSString*)secret;
 
 @end
