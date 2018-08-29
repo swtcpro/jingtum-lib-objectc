@@ -7,3 +7,26 @@ After download this sourcecode, we should run
 pod install
 ```
 to download the nessessary libraries
+
+### Attention 
+After run 
+```ruby
+pod install
+```
+we get all the needed libraries, then we should modify the file: Pods/CoreBitcoin/CoreBitcoin/BTCBase58.m
+from
+
+```ruby
+static const char* BTCBase58Alphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+```
+to
+
+```ruby
+static const char* BTCBase58Alphabet = "jpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65rkm8oFqi1tuvAxyz";
+```
+
+<br>
+
+* Gets the account balances.
+* Gets the account transactions history list.
+* Gets and refreshes the orderbooks in system.
