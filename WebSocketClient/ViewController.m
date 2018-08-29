@@ -101,17 +101,17 @@
 //    [remote requestAccountTx:options];
     
     ////////////////////////// ????????????
-//    NSMutableDictionary *gets = [[NSMutableDictionary alloc] init];
-//    NSMutableDictionary *pays = [[NSMutableDictionary alloc] init];
-//    [gets setObject:@"SWT" forKey:@"currency"];
-//    [gets setObject:@"" forKey:@"issuer"];
-//    [pays setObject:@"CNY" forKey:@"currency"];
-//    [pays setObject:@"jBciDE8Q3uJjf111VeiUNM775AMKHEbBLS" forKey:@"issuer"];
-//    [options setObject:gets forKey:@"gets"];
-//    [options setObject:pays forKey:@"pays"];
-//    NSNumber *limit = [NSNumber numberWithInteger:2];
-//    [options setObject:limit forKey:@"limit"];
-//    [remote requestOrderBook:options];
+    NSMutableDictionary *gets = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *pays = [[NSMutableDictionary alloc] init];
+    [gets setObject:@"SWT" forKey:@"currency"];
+    [gets setObject:@"" forKey:@"issuer"];
+    [pays setObject:@"CNY" forKey:@"currency"];
+    [pays setObject:@"jBciDE8Q3uJjf111VeiUNM775AMKHEbBLS" forKey:@"issuer"];
+    [options setObject:gets forKey:@"taker_gets"];
+    [options setObject:pays forKey:@"taker_pays"];
+    NSNumber *limit = [NSNumber numberWithInteger:2];
+    [options setObject:limit forKey:@"limit"];
+    [remote requestOrderBook:options];
 
     /////////////////////
 //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];

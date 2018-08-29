@@ -239,8 +239,13 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     } else {
         if ([currency isKindOfClass:[NSString class]]) {
             NSString *curr = (NSString*)currency;
-            if ([curr isEqualToString:@"SWT"] && issuer != nil) {
-                return false;
+            if ([curr isEqualToString:@"SWT"]) {
+                if ([issuer isKindOfClass:[NSString class]]) {
+                    NSString *newissuer = (NSString*)issuer;
+                    if (newissuer != nil && newissuer.length > 0) {
+                        return false;
+                    }
+                }
             }
             if (![curr isEqualToString:@"SWT"] && ![self isValidAddress:(NSString*)issuer]) {
                 return false;
@@ -533,7 +538,7 @@ NSString * const kWebSocketdidReceiveMessage = @"kWebSocketdidReceiveMessage";
     NSDictionary *pays = [paramDic objectForKey:@"pays"];
     NSObject *taker_gets = [paramDic objectForKey:@"taker_gets"];
     NSObject *taker_pays = [paramDic objectForKey:@"taker_pays"];
-    if (gets != nil && pays != nil) {
+    if ((gets != nil && pays != nil) || (taker_gets != nil && taker_pays != nil)) {
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         NSMutableArray *array = [[NSMutableArray alloc] init];
         

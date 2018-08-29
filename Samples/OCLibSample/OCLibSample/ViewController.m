@@ -301,19 +301,17 @@
 
 -(void)requestOrderBook
 {
-    NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *gets = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *pays = [[NSMutableDictionary alloc] init];
     [gets setObject:@"SWT" forKey:@"currency"];
     [gets setObject:@"" forKey:@"issuer"];
     [pays setObject:@"CNY" forKey:@"currency"];
     [pays setObject:@"jBciDE8Q3uJjf111VeiUNM775AMKHEbBLS" forKey:@"issuer"];
-    [options setObject:gets forKey:@"gets"];
-    [options setObject:pays forKey:@"pays"];
+    [options setObject:gets forKey:@"taker_gets"];
+    [options setObject:pays forKey:@"taker_pays"];
     NSNumber *limit = [NSNumber numberWithInteger:2];
     [options setObject:limit forKey:@"limit"];
     [remote requestOrderBook:options];
-    
 }
 
 -(void)buildPaymentTx
