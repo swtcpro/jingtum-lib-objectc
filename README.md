@@ -40,6 +40,19 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "jingtum-lib-objectc"
 ```
+### Attention //项目使用注意事项
+After run 
+```ruby
+pod install
+```
+we get all the needed libraries, but we should modify the file:
+```ruby
+vim Pods/CoreBitcoin/CoreBitcoin/BTCBase58.m
+
+static const char* BTCBase58Alphabet = "jpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65rkm8oFqi1tuvAxyz";
+```
+
+<br>
 
 ## Summary
 The jingtum-lib-objective-c library is based on the ws protocol to connect with jingtum system. 
