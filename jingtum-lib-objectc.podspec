@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "jingtum-lib-objectc"
-  s.version      = "1.0.5"
+  s.version      = "1.0.6"
   s.summary      = "jingtum-lib to be used for interacting with jingtum blockchain network。This is the objective-c version。"
   s.description  = "jingtum-lib to be used for interacting with jingtum blockchain network。This is the objective-c version。"
   s.homepage     = "https://github.com/swtcpro/jingtum-lib-objectc"
