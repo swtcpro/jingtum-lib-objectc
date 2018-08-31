@@ -74,7 +74,7 @@
     
     //////////////////////////
     // 这边传入的是 交易hash 哦！！！！
-//    [options setObject:@"A4C52EF5A3075BF6169BA0AC716BF26A989B97BEDE53DC3BA1C252CF1338E0C7" forKey:@"hash"];
+//    [options setObject:@"A732F92CB55814CB2C6191A0C8BBA3F6F76847C6F962A9166FA47A43A810BCD1" forKey:@"hash"];
 //    [remote requestTx:options];
     
     //////////////////////////
@@ -100,39 +100,40 @@
 //    [options setObject:@"1" forKey:@"limit"];
 //    [remote requestAccountTx:options];
     
-    ////////////////////////// ????????????
-    NSMutableDictionary *gets = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *pays = [[NSMutableDictionary alloc] init];
-    [gets setObject:@"SWT" forKey:@"currency"];
-    [gets setObject:@"" forKey:@"issuer"];
-    [pays setObject:@"CNY" forKey:@"currency"];
-    [pays setObject:@"jBciDE8Q3uJjf111VeiUNM775AMKHEbBLS" forKey:@"issuer"];
-    [options setObject:gets forKey:@"taker_gets"];
-    [options setObject:pays forKey:@"taker_pays"];
-    NSNumber *limit = [NSNumber numberWithInteger:2];
-    [options setObject:limit forKey:@"limit"];
-    [remote requestOrderBook:options];
+    //////////////////////////
+//    NSMutableDictionary *gets = [[NSMutableDictionary alloc] init];
+//    NSMutableDictionary *pays = [[NSMutableDictionary alloc] init];
+//    [gets setObject:@"SWT" forKey:@"currency"];
+//    [gets setObject:@"" forKey:@"issuer"];
+//    [pays setObject:@"CNY" forKey:@"currency"];
+//    [pays setObject:@"jBciDE8Q3uJjf111VeiUNM775AMKHEbBLS" forKey:@"issuer"];
+//    [options setObject:gets forKey:@"taker_gets"];
+//    [options setObject:pays forKey:@"taker_pays"];
+//    NSNumber *limit = [NSNumber numberWithInteger:2];
+//    [options setObject:limit forKey:@"limit"];
+//    [remote requestOrderBook:options];
 
     /////////////////////
-//    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
-//    [options setObject:@"jpKcDjvqT1BJZ6G674tvLhYdNPtwPDU6vD" forKey:@"to"];
-////    [options setObject:@"jpKcDjvqT1BJZ6G674tvLhYdNPtwPDU6vD" forKey:@"account"];
-////    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"to"];
-//
-//    NSMutableDictionary *amount = [[NSMutableDictionary alloc] init];
-//    NSNumber *value = [NSNumber numberWithFloat:2];
-//    [amount setObject:value forKey:@"value"];
-//    [amount setObject:@"SWT" forKey:@"currency"];
-//    [amount setObject:@" " forKey:@"issuer"];
-//
-//    [options setObject:amount forKey:@"amount"];
-//
-//    Transaction *tx = [[Remote instance] buildPaymentTx:options];
-//
-//    [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
-////    [tx setSecret:@"ssPstTqs7hTWXzDFj88Um9fZDeNUK"];
-//    [tx addMemo:@"给jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c支付0.5swt."];
-//    [tx submit];
+    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
+    [options setObject:@"jpKcDjvqT1BJZ6G674tvLhYdNPtwPDU6vD" forKey:@"to"];
+//    [options setObject:@"jpKcDjvqT1BJZ6G674tvLhYdNPtwPDU6vD" forKey:@"account"];
+//    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"to"];
+
+    NSMutableDictionary *amount = [[NSMutableDictionary alloc] init];
+    NSNumber *value = [NSNumber numberWithFloat:2];
+    [amount setObject:value forKey:@"value"];
+    [amount setObject:@"SWT" forKey:@"currency"];
+    [amount setObject:@" " forKey:@"issuer"];
+
+    [options setObject:amount forKey:@"amount"];
+
+    Transaction *tx = [[Remote instance] buildPaymentTx:options];
+
+    [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
+//    [tx setSecret:@"ssPstTqs7hTWXzDFj88Um9fZDeNUK"];
+    [tx addMemo:@"给jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c支付0.5swt."];
+    [tx addMemo:@"测试jerry"];
+    [tx submit];
     
     /////////////////////
 //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];

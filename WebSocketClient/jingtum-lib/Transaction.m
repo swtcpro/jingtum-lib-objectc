@@ -68,15 +68,15 @@
     _secret = [secret copy];
 }
 
--(void)addMemo:(NSString *)memo
+-(void)addMemo:(NSString *)memostr
 {
-    NSLog(@"we are in addMemo %@", memo);
-    if (memo.length > 2048) {
+    NSLog(@"we are in addMemo %@", memostr);
+    if (memostr.length > 2048) {
         NSLog(@"memo is too long");
         return;
     }
     NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
-                         memo, @"MemoData",
+                         memostr, @"MemoData",
                          nil];
     [_memo addObject:dic];
 }
@@ -114,7 +114,7 @@
 {
     // 本地签名
     NSString *msg = (NSString*)message;
-    NSLog(@"in transaction the msg is %@", msg);
+//    NSLog(@"in transaction the msg is %@", msg);
     NSData *jsonData = [msg dataUsingEncoding:NSUTF8StringEncoding];
     NSError *err = nil;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
@@ -151,6 +151,10 @@
         double newvalue = [((NSString*)amount) doubleValue] / 1000000;
         NSNumber *value = [NSNumber numberWithDouble:newvalue];
         [tx_json setObject:value forKey:@"Amount"];
+    }
+    
+    if ([_memo count] > 0) {
+        [tx_json setObject:_memo forKey:@"Memos"];
     }
     
     // order
