@@ -456,6 +456,35 @@
         [so appendData:data];
     }
     
+    if ([field_name isEqualToString:@"Memo"]) {
+        if ([objValue isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dic = (NSDictionary*)objValue;
+            NSArray *keys = [dic allKeys];
+            for (NSString *key in keys) {
+                NSLog(@"the key should be MemoData: %@", key); // the key should be MemoData
+                id value = [dic objectForKey:key];
+                NSData *data = nil;
+                if ([key isEqualToString:@"MemoType"] || [key isEqualToString:@"MemoFormat"]) {
+                    data = [value data];
+                } else if ([key isEqualToString:@"MemoData"]) {
+                    if ([value isKindOfClass:[NSString class]]) {
+                        NSString *str = (NSString*)value;
+                        data = [str dataUsingEncoding:NSUTF8StringEncoding];
+                    } else {
+                        
+                    }
+                }
+                
+                [self doserialize:key obj:data];
+            }
+            // STInt8.serialize(so, 0xe1);
+            NSData *no_marker_value = [self byteFromUInt8:0xe1];
+            [so appendData:no_marker_value];
+        }
+        
+        return;
+    }
+    
     // 2. 对值进行序列化，比如 int16，就是占用了2个字节
     NSString *typeKey = [NSString stringWithFormat:@"%d", type_bits];
     NSString *typebits_str = [TYPES_MAP objectForKey:typeKey];
@@ -573,6 +602,21 @@
             [so appendData:data];
         
             [so appendData:datastr];
+        }
+    } else if ([typebits_str isEqualToString:@"Array"]) {
+        if ([objValue isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray*)objValue;
+            for (id iter in array) {
+                if ([iter isKindOfClass:[NSDictionary class]]) {
+                    NSDictionary *dic = (NSDictionary*)iter;
+                    NSString *field_name = @"Memo";
+                    [self doserialize:field_name obj:dic];
+                }
+            }
+            
+            // STInt8.serialize(so, 0xf1);
+            NSData *ending_marker_value = [self byteFromUInt8:0xf1];
+            [so appendData:ending_marker_value];
         }
     }
 }

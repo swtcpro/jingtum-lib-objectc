@@ -301,6 +301,7 @@
 
 -(void)requestOrderBook
 {
+    NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *gets = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *pays = [[NSMutableDictionary alloc] init];
     [gets setObject:@"SWT" forKey:@"currency"];
@@ -336,6 +337,7 @@
         [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
         //    [tx setSecret:@"ssPstTqs7hTWXzDFj88Um9fZDeNUK"];
         [tx addMemo:@"给jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c支付0.5swt."];
+        [tx addMemo:@"测试jerry"];
         [tx submit];
     }
 }

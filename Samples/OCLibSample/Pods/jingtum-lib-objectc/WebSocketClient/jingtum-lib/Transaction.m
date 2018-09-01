@@ -18,6 +18,8 @@
 
 -(id)init
 {
+    _memo = [[NSMutableArray alloc] init];
+    
     if (self = [super init]) {
         gFlags = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                  [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -66,10 +68,17 @@
     _secret = [secret copy];
 }
 
--(void)addMemo:(NSString *)memo
+-(void)addMemo:(NSString *)memostr
 {
-    NSLog(@"we are in addMemo %@", memo);
-    _memo = [memo copy];
+    NSLog(@"we are in addMemo %@", memostr);
+    if (memostr.length > 2048) {
+        NSLog(@"memo is too long");
+        return;
+    }
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:
+                         memostr, @"MemoData",
+                         nil];
+    [_memo addObject:dic];
 }
 
 -(void)submit
@@ -105,7 +114,7 @@
 {
     // 本地签名
     NSString *msg = (NSString*)message;
-    NSLog(@"in transaction the msg is %@", msg);
+//    NSLog(@"in transaction the msg is %@", msg);
     NSData *jsonData = [msg dataUsingEncoding:NSUTF8StringEncoding];
     NSError *err = nil;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
@@ -142,6 +151,10 @@
         double newvalue = [((NSString*)amount) doubleValue] / 1000000;
         NSNumber *value = [NSNumber numberWithDouble:newvalue];
         [tx_json setObject:value forKey:@"Amount"];
+    }
+    
+    if ([_memo count] > 0) {
+        [tx_json setObject:_memo forKey:@"Memos"];
     }
     
     // order

@@ -27,7 +27,7 @@
 +(NSDictionary*)generate
 {
     NSDictionary *secretDic = [Seed random];
-    NSLog(@"the secretDic is %@", secretDic);
+//    NSLog(@"the secretDic is %@", secretDic);
     
     NSData *seedBytes = [secretDic objectForKey:@"seed"];
     NSString *secret = [secretDic objectForKey:@"secret"];
@@ -51,21 +51,46 @@
 
 +(NSDictionary*)fromSecret:(NSString*)secret
 {
+    if (secret == nil || secret.length < 2) {
+        NSLog(@"the secret is invalid");
+        return nil;
+    }
     Seed *seed = [[Seed alloc] init];
     
     Keypairs *keypairs = [seed deriveKeyPair:secret];
     
-    NSData *bytes = [keypairs.pub BTCHash160];
-    BTCAddress *btcAddress = [BTCPublicKeyAddress addressWithData:bytes];
-    NSString *address = btcAddress.base58String;
-    NSLog(@"the address is %@", address);
+    if (keypairs != nil) {
+        NSData *bytes = [keypairs.pub BTCHash160];
+        BTCAddress *btcAddress = [BTCPublicKeyAddress addressWithData:bytes];
+        NSString *address = btcAddress.base58String;
+        NSLog(@"the address is %@", address);
+        
+        //    Wallet *wallet = [[Wallet alloc] initWithKeypairs:keypairs private:secret];
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:secret forKey:@"secret"];
+        [dic setObject:address forKey:@"address"];
+        
+        return dic;
+    }
     
-    //    Wallet *wallet = [[Wallet alloc] initWithKeypairs:keypairs private:secret];
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:secret forKey:@"secret"];
-    [dic setObject:address forKey:@"address"];
+    return nil;
+}
+
++(BOOL)isValidSecret:(NSString*)secret
+{
+    if (secret == nil || secret.length < 2) {
+        NSLog(@"the secret is invalid");
+        return nil;
+    }
+    Seed *seed = [[Seed alloc] init];
     
-    return dic;
+    Keypairs *keypairs = [seed deriveKeyPair:secret];
+    
+    if (keypairs != nil) {
+        return true;
+    }
+    
+    return false;
 }
 
 @end

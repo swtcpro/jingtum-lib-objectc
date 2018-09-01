@@ -81,10 +81,10 @@ Submit() method.
     remote.Disconnect();
 ```
 
-### Contributing //贡献，在此可以添加一些联系方式比如说 qq 群之类的
+### Contributing 
 Please feel free to send me pull requests or And other ways of contact to add links.<br>
 QQ : 3107251779<br>
 
-### Licensing //许可
+### Licensing 
 jingtum-lib-objective-c is released under the terms of the MIT license. See COPYING for more information or see [MIT](https://opensource.org/licenses/MIT)
 
