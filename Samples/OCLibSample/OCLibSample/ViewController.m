@@ -20,8 +20,8 @@
 //    Wallet *wallet1 = [Wallet generate];
 //    NSLog(@"the wallet is %@", wallet1);
     
-//    Wallet *wallet2 = [Wallet fromSecret:@"ss4EUqv9CqWtitJpwvGdDapE5GL9k"];
-//    NSLog(@"the wallet2 is %@", wallet2);
+    Wallet *wallet2 = [Wallet fromSecret:@"ss4EUqv9CqWtitJpwvGdDapE5GL9k"];
+    NSLog(@"the wallet2 is %@", wallet2);
     
     // 连接
     remote = [Remote instance];
@@ -320,8 +320,6 @@
     NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
     [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
     [options setObject:@"jpKcDjvqT1BJZ6G674tvLhYdNPtwPDU6vD" forKey:@"to"];
-    //    [options setObject:@"jpKcDjvqT1BJZ6G674tvLhYdNPtwPDU6vD" forKey:@"account"];
-    //    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"to"];
     
     NSMutableDictionary *amount = [[NSMutableDictionary alloc] init];
     NSNumber *value = [NSNumber numberWithFloat:2];
@@ -335,7 +333,6 @@
     
     if (tx != nil) {
         [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
-        //    [tx setSecret:@"ssPstTqs7hTWXzDFj88Um9fZDeNUK"];
         [tx addMemo:@"给jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c支付0.5swt."];
         [tx addMemo:@"测试jerry"];
         [tx submit];

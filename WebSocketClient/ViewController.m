@@ -66,7 +66,7 @@
 //
 ////    [options setObject:ledger_index forKey:@"ledger_index"];
 ////    [options setObject:transactions forKey:@"transactions"];
-//    // ???????????????????
+//    // 
 //    [options setObject:@"DB48A226AFFFDF02A782757DE55680905556EE4DBCFE3ACDA06D3B69481DF2xxx" forKey:@"ledger_hash"];
 //    [options setObject:transactions forKey:@"transactions"];
 //
@@ -116,8 +116,6 @@
     /////////////////////
     [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"account"];
     [options setObject:@"jpKcDjvqT1BJZ6G674tvLhYdNPtwPDU6vD" forKey:@"to"];
-//    [options setObject:@"jpKcDjvqT1BJZ6G674tvLhYdNPtwPDU6vD" forKey:@"account"];
-//    [options setObject:@"jB7rxgh43ncbTX4WeMoeadiGMfmfqY2xLZ" forKey:@"to"];
 
     NSMutableDictionary *amount = [[NSMutableDictionary alloc] init];
     NSNumber *value = [NSNumber numberWithFloat:2];
@@ -130,7 +128,6 @@
     Transaction *tx = [[Remote instance] buildPaymentTx:options];
 
     [tx setSecret:@"sn37nYrQ6KPJvTFmaBYokS3FjXUWd"];
-//    [tx setSecret:@"ssPstTqs7hTWXzDFj88Um9fZDeNUK"];
     [tx addMemo:@"给jDUjqoDZLhzx4DCf6pvSivjkjgtRESY62c支付0.5swt."];
     [tx addMemo:@"测试jerry"];
     [tx submit];
